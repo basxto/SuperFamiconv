@@ -74,7 +74,10 @@ int sfc_palette(int argc, char* argv[]) {
     // Set pce_sprite mode and sprite_mode interchangeably
     if (settings.sprite_mode && settings.mode == sfc::Mode::pce)
       settings.mode = sfc::Mode::pce_sprite;
-    if (settings.mode == sfc::Mode::pce_sprite)
+    // And do the same for gb_sprite
+    if (settings.sprite_mode && settings.mode == sfc::Mode::gb)
+      settings.mode = sfc::Mode::gb_sprite;
+    if (settings.mode == sfc::Mode::pce_sprite || settings.mode == sfc::Mode::gb_sprite)
       settings.sprite_mode = true;
 
     // Mode-specific defaults

@@ -75,6 +75,7 @@ inline byte_vec_t pack_native_mapentry(const Mapentry& entry, Mode mode) {
     break;
 
   case Mode::gb:
+  case Mode::gb_sprite:
     v.push_back(entry.tile_index & 0xff);
     break;
 

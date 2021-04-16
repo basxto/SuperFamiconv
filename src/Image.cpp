@@ -178,7 +178,7 @@ Image Image::crop(unsigned x, unsigned y, unsigned crop_width, unsigned crop_hei
   img._src_coord_y = y;
   img._data.resize(crop_width * crop_height * 4);
 
-  uint32_t fillval = mode == Mode::gb ? 0xff000000 : transparent_color;
+  uint32_t fillval = (mode == Mode::gb || mode == Mode::gb_sprite) ? 0xff000000 : transparent_color;
   size_t fillsize = img._data.size();
   for (size_t i = 0; i < fillsize; i += 4)
     std::memcpy(img._data.data() + i, &fillval, sizeof(fillval));
